@@ -8,7 +8,7 @@ export default async function Header() {
   return (
     <div className="bg-mauve-1 dark:bg-opacity-90 bg-opacity-70 backdrop-blur p-2 border-mauve-9/30 border-b z-10 backdrop-saturate-150 sticky w-full top-0">
       <div className="flex justify-between items-center max-w-7xl m-auto">
-        <h1 className="text-4xl font-extrabold tracking-tighter bg-gradient-to-tr from-pink-9 to-purple-9 text-transparent bg-clip-text p-2">
+        <h1 className="text-4xl font-extrabold tracking-tighter bg-gradient-to-tr from-pink-9 to-purple-11 text-transparent bg-clip-text p-2">
           NoteThing™
         </h1>
         {session?.user ? (

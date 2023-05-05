@@ -1,12 +1,7 @@
-import './globals.css';
-import { Inter } from 'next/font/google';
+import './styles/globals.css';
 import Providers from '@/components/providers';
-import Header from '@/components/header';
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap'
-});
+import Footer from '@/components/footer';
+import { inter } from './fonts';
 
 export const metadata = {
   title: 'NotesThing™',
@@ -27,9 +22,8 @@ export default async function RootLayout({
             ' w-full min-h-screen bg-slate-1 relative flex flex-col'
           }
         >
-          {/* @ts-expect-error Server Component */}
-          <Header />
           {children}
+          <Footer />
           <div className="absolute inset-0 bg-grid-white dark:bg-grid-dark dark:opacity-10 opacity-40 z-[-1]"></div>
         </body>
       </Providers>
