@@ -17,9 +17,12 @@ export default async function Header() {
   return (
     <div className="bg-mauve-1 dark:bg-opacity-90 bg-opacity-70 backdrop-blur py-2 px-6 border-mauve-9/30 border-b z-10 backdrop-saturate-150 sticky w-full top-0">
       <div className="flex justify-between items-center max-w-7xl m-auto">
-        <h1 className="text-4xl font-extrabold tracking-tighter bg-gradient-to-tr from-pink-9 to-purple-11 text-transparent bg-clip-text p-2">
+        <Link
+          href="/"
+          className="text-4xl font-extrabold tracking-tighter bg-gradient-to-tr from-pink-9 to-purple-11 text-transparent bg-clip-text p-2"
+        >
           NoteThing™
-        </h1>
+        </Link>
         <div className="flex items-center gap-2">
           <Link
             className="font-medium text-sm py-1 px-2 hover:bg-mauve-8/40 rounded duration-200 ease-out text-mauve-10 hover:text-mauve-12 hover:shadow-inner hover:shadow-mauve-10/20"
@@ -29,7 +32,7 @@ export default async function Header() {
           </Link>
           <Link
             className="font-medium text-sm py-1 px-2 hover:bg-mauve-8/40 rounded duration-200 ease-out text-mauve-10 hover:text-mauve-12 hover:shadow-inner hover:shadow-mauve-10/20"
-            href="/notes"
+            href="/users"
           >
             Find Users
           </Link>
