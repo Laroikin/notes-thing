@@ -1,3 +1,19 @@
-export { default } from "next-auth/middleware"
+import { withAuth } from 'next-auth/middleware';
+import { NextRequest, NextResponse } from 'next/server';
 
-export const config = { matcher: ["/dashboard"] }
+export default withAuth(
+  req => {
+    console.log(req.nextauth, '1');
+    // if(req.nextUrl.pathname)
+  },
+  {
+    pages: {
+      signIn: '/login',
+      signOut: '/logout'
+    }
+  }
+);
+
+export const config = {
+  matcher: ['/protected']
+};

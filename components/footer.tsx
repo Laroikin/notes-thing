@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="p-4 border-t border-mauve-12/20 mx-2">
+    <footer className="p-4 border-t border-mauve-12/20 mx-2 backdrop-blur">
       <div
         className={
           'flex justify-normal gap-x-20 gap-y-8 flex-wrap max-w-4xl m-auto' +

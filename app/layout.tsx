@@ -1,6 +1,5 @@
 import './styles/globals.css';
 import Providers from '@/components/providers';
-import Footer from '@/components/footer';
 import { inter } from './fonts';
 
 export const metadata = {
@@ -14,7 +13,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className='dark'
+      data-theme="dark"
+    >
       <Providers>
         <body
           className={
@@ -23,7 +26,6 @@ export default async function RootLayout({
           }
         >
           {children}
-          <Footer />
           <div className="absolute inset-0 bg-grid-white dark:bg-grid-dark dark:opacity-10 opacity-40 z-[-1]"></div>
         </body>
       </Providers>

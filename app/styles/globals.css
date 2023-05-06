@@ -8,12 +8,10 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+[data-theme='dark'] {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
 }
 
 body {
@@ -79,34 +77,44 @@ body {
       transparent
     );
   }
-  
-  .cool-hover::before{
+
+  .cool-hover::before {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
     transition: 0.3s;
   }
 
-  .cool-hover:hover::before{
+  .cool-hover:hover::before {
     left: 100%;
   }
 
-  .cool-hover-dark::before{
+  .cool-hover-dark::before {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(0, 0, 0, 0.2), transparent);
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(0, 0, 0, 0.2),
+      transparent
+    );
     transition: 0.3s;
   }
 
-  .cool-hover-dark:hover::before{
+  .cool-hover-dark:hover::before {
     left: 100%;
   }
 }
