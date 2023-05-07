@@ -1,8 +1,16 @@
-import SignInBtn from '@/components/signinbtn';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import SignInBtn from '@/components/signin-btn';
+import { getServerSession } from 'next-auth/next';
 import { getProviders } from 'next-auth/react';
+import { redirect } from 'next/navigation';
 
 export default async function Login() {
   const providers = await getProviders();
+  const session = await getServerSession(authOptions);
+
+  if (session?.user) {
+    redirect('/');
+  }
 
   return (
     <main className="flex justify-center items-center grow">

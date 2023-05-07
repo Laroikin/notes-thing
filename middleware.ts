@@ -4,7 +4,6 @@ import { NextRequest, NextResponse } from 'next/server';
 export default withAuth(
   req => {
     console.log(req.nextauth, '1');
-    // if(req.nextUrl.pathname)
   },
   {
     pages: {

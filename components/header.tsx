@@ -4,13 +4,17 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Edit3 } from 'lucide-react';
 import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger
-} from '@/components/ui/popover';
-import LogoutBtn from './logoutbtn';
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger
+} from '@/components/ui/dropdown-menu';
+import LogoutBtn from './logout-btn';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
-import ToggleThemeBtn from './togglethemebtn';
+import ToggleThemeBtn from './toggle-theme-btn';
+import Navlink from './ui/navlink';
 
 export default async function Header() {
   const session = await getServerSession(authOptions);
@@ -24,22 +28,12 @@ export default async function Header() {
           NoteThing™
         </Link>
         <div className="flex items-center gap-2">
-          <Link
-            className="font-medium text-sm py-1 px-2 hover:bg-mauve-8/40 rounded duration-200 ease-out text-mauve-10 hover:text-mauve-12 hover:shadow-inner hover:shadow-mauve-10/20"
-            href="/notes"
-          >
-            Latest Notes
-          </Link>
-          <Link
-            className="font-medium text-sm py-1 px-2 hover:bg-mauve-8/40 rounded duration-200 ease-out text-mauve-10 hover:text-mauve-12 hover:shadow-inner hover:shadow-mauve-10/20"
-            href="/users"
-          >
-            Find Users
-          </Link>
+          <Navlink href="/notes">Latest Notes</Navlink>
+          <Navlink href="/users">Find Users</Navlink>
           <div className="ml-4 flex items-center">
             {session?.user ? (
-              <Popover>
-                <PopoverTrigger className="hover:ring-4 ring-mauve-11/50  rounded-full duration-300 data-[state=open]:ring-4">
+              <DropdownMenu>
+                <DropdownMenuTrigger className="hover:ring-4 ring-mauve-11/50  rounded-full duration-300 data-[state=open]:ring-4">
                   {session.user.image && (
                     <Image
                       src={session.user.image}
@@ -54,35 +48,38 @@ export default async function Header() {
                       {session.user.name.slice(0, 2)}
                     </span>
                   )}
-                </PopoverTrigger>
-                <PopoverContent
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
                   className="flex flex-col"
                   sideOffset={12}
                   align="center"
                 >
-                  <div className="p-3">
+                  <DropdownMenuLabel className="p-3">
                     <p className="font-semibold text-sm">{session.user.name}</p>
                     <span className="text-mauve-9 text-sm">
                       {session.user.email}
                     </span>
-                  </div>
-                  <div className="p-1.5">
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem className="p-1.5">
                     <Link
                       href="/notes/new-note"
-                      className="text-sm text-medium text-left flex items-center gap-2 text-mauve-12 w-full  hover:bg-mauve-4 duration-300 rounded p-1.5"
+                      className="text-left flex items-center gap-2 w-full hover:bg-mauve-4 duration-300 rounded p-1.5"
                     >
                       {' '}
                       <Edit3 className="w-4 h-4" /> Write a new note
                     </Link>
-                  </div>
-                  <div className="p-1 5">
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem className="p-1 5">
                     <ToggleThemeBtn />
-                  </div>
-                  <div className="p-1.5">
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem className="p-1.5">
                     <LogoutBtn />
-                  </div>
-                </PopoverContent>
-              </Popover>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             ) : (
               <Link
                 className="py-1 relative px-4 rounded-full dark:cool-hover-dark cool-hover bg-mauve-12 text-gray-1 border-mauve-1 dark:border text-sm font-semibold shadow-[-15px_0_30px_-10px_var(--orangeA7),_0_0_30px_-10px_var(--pinkA7),_15px_0_30px_-10px_var(--violetA7)] hover:shadow-[-15px_0_30px_-10px_var(--orangeA8),_0_0_30px_-10px_var(--pinkA8),_15px_0_30px_-10px_var(--violetA8)] duration-300 overflow-hidden"

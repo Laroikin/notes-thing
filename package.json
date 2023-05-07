@@ -12,6 +12,7 @@
     "@next-auth/prisma-adapter": "^1.0.6",
     "@prisma/client": "^4.13.0",
     "@radix-ui/react-avatar": "^1.0.2",
+    "@radix-ui/react-dropdown-menu": "^2.0.4",
     "@radix-ui/react-popover": "^1.0.5",
     "@t3-oss/env-core": "^0.2.2",
     "@types/node": "20.0.0",
@@ -33,7 +34,8 @@
     "tailwindcss": "3.3.2",
     "tailwindcss-animate": "^1.0.5",
     "typescript": "^5.0.4",
-    "zod": "^3.21.4"
+    "zod": "^3.21.4",
+    "zod-form-data": "^2.0.1"
   },
   "devDependencies": {
     "@radix-ui/colors": "^0.1.8",
