@@ -32,8 +32,8 @@ export default function LikeBtn({
   );
   return (
     <div
-      className={cn('basis-1/2 ml-14 flex gap-0.5 items-center text-mauve-9', {
-        'text-red-9': optimisticLike.isLiked
+      className={cn('basis-1/2 ml-14 flex gap-[0.09rem] items-center text-mauve-9', {
+        'text-crimson-9': optimisticLike.isLiked
       })}
     >
       <button
@@ -41,18 +41,18 @@ export default function LikeBtn({
           addOptimisticLike(1);
           await likeNote(note.id, session.data?.user?.email!);
         }}
-        className="p-2 -ml-2 rounded-full hover:bg-red-9/20 leading-tight group duration-100"
+        className="p-2 -ml-2 rounded-full hover:bg-crimson-9/20 leading-tight group duration-100"
       >
         <Heart
           className={cn(
-            'w-4 h-4 mt-0.5 aspect-square mx-[0.0625rem] group-hover:text-red-9 duration-100',
+            'w-4 h-4 mt-0.5 aspect-square mx-[0.0625rem] group-hover:text-crimson-9 duration-100',
             {
-              'fill-red-9': optimisticLike.isLiked
+              'fill-crimson-9': optimisticLike.isLiked
             }
           )}
         />
       </button>
-      <span className="text-xs mt-1 font-medium">
+      <span className="text-sm mt-[0.17rem] font-medium">
         {optimisticLike.likes != 0 && optimisticLike.likes}
       </span>
     </div>
