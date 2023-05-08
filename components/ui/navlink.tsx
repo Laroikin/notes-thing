@@ -15,8 +15,6 @@ export default function Navlink({
 }) {
   const pathname = usePathname();
 
-  console.log(pathname, href, pathname === href);
-
   return (
     <Link
       className={cn(

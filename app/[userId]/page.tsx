@@ -7,7 +7,5 @@ export default async function User({ params }: { params: { userId: string } }) {
     }
   });
 
-  return <div className="flex flex-col">
-    {user?.name}
-  </div>;
+  return <div className="flex flex-col">{user?.name}</div>;
 }

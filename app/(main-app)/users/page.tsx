@@ -9,7 +9,7 @@ export default async function ListUsers() {
       }
     }
   });
-  console.log(users);
+
   return (
     <div>
       {users.map(user => {

@@ -77,4 +77,6 @@ model LikesOnNote {
   userId String
   note   Note   @relation(fields: [noteId], references: [id], onDelete: Cascade)
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([noteId, userId])
 }
